@@ -3,7 +3,6 @@
     <div class="swiper">
       <div class="bannerBox">
         <transition-group tag="ul" class='slide-ul' name="list">
-          <!-- <li :class="index===currentIndex ? 'active':''" :style="{backgroundImage: 'url(/static/img/index/'+item.img+'.jpg)'}" v-show="index===currentIndex" v-for="(item,index) in banners" :key="index"> -->
           <li v-for="(item,index) in banners" :key="index" v-show="index===currentIndex">
             <img :src="'/static/img/index/'+item.img+'.jpg'" alt="">
           </li>

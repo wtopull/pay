@@ -21,12 +21,12 @@ module.exports = {
   build: {
     index: path.resolve(__dirname, '../dist/index.html'),
     assetsRoot: path.resolve(__dirname, '../dist'),
-    assetsSubDirectory: 'static',
+    assetsSubDirectory: './static',
     assetsPublicPath: '/',
     /**
      * Source Maps
      */
-    productionSourceMap: true,
+    productionSourceMap: false,
     devtool: '#source-map',
     productionGzip: true,
     productionGzipExtensions: ['js', 'css', 'json'],
