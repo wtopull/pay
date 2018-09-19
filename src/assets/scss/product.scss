@@ -1,0 +1,203 @@
+.product {
+  & .distribution {
+    background-image: url(/static/img/product/bg-products.jpg);
+    padding: 100px 0 70px;
+    background-size: cover;
+    background-position: 50%;
+    height: 750px;
+    position: relative;
+
+    & .content {
+      margin: 70px auto;
+      width: 80%;
+      text-align: center;
+      color: #fff;
+
+      & .sub-title {
+        margin-bottom: 25px;
+        font-size: 24px;
+        font-weight: 300;
+        line-height: 28px;
+
+        & label {
+          padding-left: 50px;
+          display: inline-block;
+          background-position: 0;
+          background-size: 36px 36px;
+          background-repeat: no-repeat;
+          line-height: 36px;
+          background-image: url(/static/img/headicon/aggregate-pay-white.svg);
+        }
+      }
+
+      & h1 {
+        margin-bottom: 30px;
+        font-size: 44px;
+        font-weight: 300;
+      }
+
+      & .desc {
+        margin: 0 auto 100px;
+        width: 60%;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 28px;
+        opacity: .7;
+      }
+
+      & .arrow {
+        display: inline-block;
+        width: 22px;
+        height: 36px;
+        // background: url(data:image/png;)
+        background-size: cover;
+        margin: 30px 0 8px;
+      }
+    }
+  }
+}
+
+.module-box {
+  padding-top: 60px;
+  margin-top: 30px;
+
+  & .module-title {
+    margin-bottom: 32px;
+    text-align: left;
+    font-size: 34px;
+    font-weight: 300;
+  }
+
+  & .module-desc {
+    margin-bottom: 60px;
+    width: 70%;
+    line-height: 1.7;
+    text-align: left;
+  }
+}
+
+.border-top {
+  border: none;
+  border-top: 1px solid rgba(0, 0, 0, .05);
+}
+
+.scenes {
+  height: 100px;
+  overflow: hidden;
+  text-align: center;
+
+  & .scenes-name {
+    padding-right: 40px;
+    font-weight: 300;
+    font-size: 30px;
+    text-align: right;
+  }
+
+  & .scenes-right {
+    padding-left: 15px;
+    padding-right: 60px;
+    max-width: 570px;
+    text-align: left;
+
+    & .scenes-title {
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
+
+    & .scenes-desc {
+      opacity: .7;
+    }
+  }
+}
+
+.scenes .scenes-name,
+.scenes .scenes-right {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.scenes-tabs {
+  margin-top: 60px;
+
+  & i {
+    margin-bottom: 15px;
+    display: block;
+    padding-top: 100%;
+    background-position: 50%;
+    background-size: 120%;
+    transition: box-shadow .3s;
+  }
+
+  @for $i from 1 through 6 {
+    & .scenes-tab:nth-child(#{$i}) {
+      & i {
+        background-image: url('/static/img/product/product-'+ $i +'.png');
+      }
+    }
+  }
+}
+
+.scenes-tabs.scenes-tabs2 {
+  @for $i from 1 through 3 {
+    & .scenes-tab:nth-child(#{$i}) {
+      & i {
+        background-image: url('/static/img/product/product'+ $i +'.png');
+      }
+    }
+  }
+}
+
+.scenes-tabs .scenes-tab.active,
+.scenes-tabs .scenes-tab:hover {
+  color: #35c8e6;
+}
+
+.scenes-tabs .scenes-tab {
+  padding: 0 10px;
+  text-align: center;
+  font-size: 14px;
+  cursor: pointer;
+  transition: color .3s;
+}
+
+.scenes-tabs .scenes-tab.active i,
+.scenes-tabs .scenes-tab:hover i {
+  box-shadow: 0 1px 10px rgba(0, 0, 0, .1);
+}
+
+.col-2 {
+  width: 16.66666667%;
+  float: left;
+}
+
+.col-3 {
+  width: 25%;
+  float: left;
+}
+
+.bottom-banner {
+  padding: 60px 0 80px;
+  text-align: center;
+  color: #fff;
+
+  & h3 {
+    margin: 32px 0;
+    font-size: 26px;
+    font-weight: 300;
+  }
+  & .button{
+    margin-top: 36px;
+    padding: 8px 15px;
+    background-color: #fff;
+    border-radius: 100px;
+    font-size: 14px;
+  }
+}
+.banner {
+  position: relative;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-size: cover;
+  background-clip: padding-box;
+  margin-top: 80px;
+}
