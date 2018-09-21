@@ -227,6 +227,10 @@ export default {
     },
     //省点击
     showprovinceball(){
+      this.city = '';
+      this.county = '';
+      this.citys = '';
+      this.countys = '';
       this.province = cascade['0']['0'];
       this.showprovince = !this.showprovince;
     },
