@@ -17,24 +17,11 @@
           <label class="label require">行业类型</label>
           <div class="form-line">
             <div class="list-wrap list big-list">
-              <i class="arrow-bottom"></i> <input placeholder="请选择" readonly="readonly" class="ellipsis">
-              <div class="list vb vb-visible" style="width: 100%; height: 152px; left: 0px; position: relative; overflow: hidden;">
-                <div class="vb-content" style="display: block; overflow: hidden scroll; height: 100%; width: calc(100% + 17px);">
+              <i class="arrow-bottom"></i> <input placeholder="请选择" v-model="vbs" readonly="readonly" class="ellipsis" @click="showvbsball">
+              <div class="list vb vb-visible" v-show="showvbs" style="width: 100%; height: 152px; left: 0px; position: relative; overflow: hidden;">
+                <div class="vb-content" style="overflow: hidden scroll; height: 100%; width: calc(100% + 17px);">
                   <ul>
-                    <li data-index="0">服务</li>
-                    <li data-index="1">餐饮娱乐</li>
-                    <li data-index="2">医疗保健</li>
-                    <li data-index="3">美容美发</li>
-                    <li data-index="4">珠宝</li>
-                    <li data-index="5">酒店</li>
-                    <li data-index="6">数码产品</li>
-                    <li data-index="7">教育培训</li>
-                    <li data-index="8">体育运动</li>
-                    <li data-index="9">批发零售</li>
-                    <li data-index="10">服装业</li>
-                    <li data-index="11">制造业</li>
-                    <li data-index="12">旅游业</li>
-                    <li data-index="13">其它</li>
+                    <li :data-index="index" v-for="(k,index) in vb" @click="vbball(k,index)">{{k}}</li>
                   </ul>
                 </div>
                 <div class="vb-dragger" style="position: absolute; height: 54px; top: 0px;">
@@ -59,41 +46,11 @@
         <label class="label require">省/市/区</label>
         <div class="form-line">
           <div class="list-wrap list">
-            <i class="arrow-bottom"></i> <input placeholder="请选择省" readonly="readonly" class="ellipsis">
-            <div class="list vb vb-visible" style="width: 100%; height: 152px; left: 0px; position: relative; overflow: hidden;">
-              <div class="vb-content" style="display: block; overflow: hidden scroll; height: 100%; width: calc(100% + 17px);">
+            <i class="arrow-bottom"></i> <input placeholder="请选择省" value="provinces" v-model="provinces" readonly="readonly" class="ellipsis" @click="showprovinceball">
+            <div class="list vb vb-visible" v-show="showprovince" style="width: 100%; height: 152px; left: 0px; position: relative; overflow: hidden;">
+              <div class="vb-content" style="overflow: hidden scroll; height: 100%; width: calc(100% + 17px);">
                 <ul>
-                  <li data-index="0">北京市</li>
-                  <li data-index="1">天津市</li>
-                  <li data-index="2">河北省</li>
-                  <li data-index="3">山西省</li>
-                  <li data-index="4">内蒙古自治区</li>
-                  <li data-index="5">辽宁省</li>
-                  <li data-index="6">吉林省</li>
-                  <li data-index="7">黑龙江省</li>
-                  <li data-index="8">上海市</li>
-                  <li data-index="9">江苏省</li>
-                  <li data-index="10">浙江省</li>
-                  <li data-index="11">安徽省</li>
-                  <li data-index="12">福建省</li>
-                  <li data-index="13">江西省</li>
-                  <li data-index="14">山东省</li>
-                  <li data-index="15">河南省</li>
-                  <li data-index="16">湖北省</li>
-                  <li data-index="17">湖南省</li>
-                  <li data-index="18">广东省</li>
-                  <li data-index="19">广西壮族自治区</li>
-                  <li data-index="20">海南省</li>
-                  <li data-index="21">重庆市</li>
-                  <li data-index="22">四川省</li>
-                  <li data-index="23">贵州省</li>
-                  <li data-index="24">云南省</li>
-                  <li data-index="25">西藏自治区</li>
-                  <li data-index="26">陕西省</li>
-                  <li data-index="27">甘肃省</li>
-                  <li data-index="28">青海省</li>
-                  <li data-index="29">宁夏回族自治区</li>
-                  <li data-index="30">新疆维吾尔自治区</li>
+                  <li :data-index="index" v-for="(k,index) in province" @click="provinceball(k,index)">{{k}}</li>
                 </ul>
               </div>
               <div class="vb-dragger" style="position: absolute; height: 24px; top: 0px;">
@@ -102,11 +59,11 @@
             </div>
           </div>
           <div class="list-wrap list">
-            <i class="arrow-bottom"></i> <input placeholder="请选择市" readonly="readonly" class="ellipsis">
-            <div class="list vb vb-invisible" style="width: 100%; height: 32px; left: 0px; position: relative; overflow: hidden;">
-              <div class="vb-content" style="display: block; overflow: hidden scroll; height: 100%; width: calc(100% + 17px);">
+            <i class="arrow-bottom"></i> <input placeholder="请选择市" v-model="citys" readonly="readonly" class="ellipsis" @click="showcityball">
+            <div class="list vb vb-invisible" v-show="showcity" style="width: 100%; height: 152px; left: 0px; position: relative; overflow: hidden;">
+              <div class="vb-content" style="overflow: hidden scroll; height: 100%; width: calc(100% + 17px);">
                 <ul>
-                  <li data-index="0">天津市</li>
+                  <li :data-index="indexx" v-for="(y,indexx) in city" @click="cityball(y,indexx)">{{y}}</li>
                 </ul>
               </div>
               <div class="vb-dragger" style="position: absolute; height: 0px; top: 0px;">
@@ -115,26 +72,11 @@
             </div>
           </div>
           <div class="list-wrap list">
-            <i class="arrow-bottom"></i> <input placeholder="请选择区" readonly="readonly" class="ellipsis">
-            <div class="list vb vb-visible" style="width: 100%; height: 152px; left: 0px; position: relative; overflow: hidden;">
-              <div class="vb-content" style="display: block; overflow: hidden scroll; height: 100%; width: calc(100% + 17px);">
+            <i class="arrow-bottom"></i> <input placeholder="请选择区" value="countys" v-model="countys" readonly="readonly" class="ellipsis" @click="showcountyball">
+            <div class="list vb vb-visible" v-show="showcounty" style="width: 100%; height: 152px; left: 0px; position: relative; overflow: hidden;">
+              <div class="vb-content" style="overflow: hidden scroll; height: 100%; width: calc(100% + 17px);">
                 <ul>
-                  <li data-index="0">和平区</li>
-                  <li data-index="1">河东区</li>
-                  <li data-index="2">河西区</li>
-                  <li data-index="3">南开区</li>
-                  <li data-index="4">河北区</li>
-                  <li data-index="5">红桥区</li>
-                  <li data-index="6">东丽区</li>
-                  <li data-index="7">西青区</li>
-                  <li data-index="8">津南区</li>
-                  <li data-index="9">北辰区</li>
-                  <li data-index="10">武清区</li>
-                  <li data-index="11">宝坻区</li>
-                  <li data-index="12">滨海新区</li>
-                  <li data-index="13">宁河县</li>
-                  <li data-index="14">静海县</li>
-                  <li data-index="15">蓟县</li>
+                  <li :data-index="indexxx" v-for="(e,indexxx) in county" @click="countyball(e,indexxx)">{{e}}</li>
                 </ul>
               </div>
               <div class="vb-dragger" style="position: absolute; height: 47px; top: 0px;">
@@ -239,6 +181,7 @@
   </div>
 </template>
 <script>
+import {cascade} from '@/assets/js/cascade.js'//联动文件
 export default {
   data() {
     return {
@@ -246,15 +189,79 @@ export default {
       list1:["企业","个人"],
       nums2:1,
       list2:["对公","对私"],
+      vb:["服务","餐饮娱乐","医疗保健","美容美发","珠宝","酒店","数码产品","教育培训","体育运动","批发零售","服装业","制造业","旅游业","其它"],
+      vbs:'',
+      provinces:'',
+      citys:'',
+      countys:'',
+      showvbs:false,
+      showprovince:false,
+      showcity:false,
+      showcounty:false,
+      province:'',//省
+      city:'',//市
+      county:'',//县
+      a:'',//省的代号
+      b:'',//市的代号
+      c:'',//县的代号
     };
-  },
+  }, 
   methods: {
+    //省选择
+    provinceball(k,index){
+      this.provinces = k;
+      this.a = index;
+      this.showprovinceball();
+    },
+    //市选择
+    cityball(k,index){
+      this.citys = k;
+      this.b = index;
+      this.showcityball();
+    },
+    //市选择
+    countyball(k,index){
+      this.countys = k;
+      this.c = index;
+      this.showcountyball();
+    },
+    //省点击
+    showprovinceball(){
+      this.province = cascade['0']['0'];
+      this.showprovince = !this.showprovince;
+    },
+    //市点击
+    showcityball(){
+      this.city = cascade['0'][this.a];
+      if(this.provinces !== ''){
+        this.showcity = !this.showcity;
+      }
+    },
+    //县点击
+    showcountyball(){
+      this.county = cascade['0'][this.a+','+this.b]
+      if(this.citys !== ''){
+        this.showcounty = !this.showcounty;
+      }
+    },
+    //行业类型选择、点击事件
+    showvbsball(){
+      this.showvbs = !this.showvbs;
+    },
+    //行业类型选择
+    vbball(k,index){
+      this.vbs = k;
+      this.showvbsball();
+    },
+    //暂时不开通
     tohome() {
       this.$router.push("/");
     },
+    //商户类型选择
     tolist1(item,index){
       this.nums1 = index;
     },
+    //银行卡类型选择
     tolist2(item,index){
       this.nums2 = index;
     }
