@@ -1,6 +1,6 @@
 <template>
   <div class="headers">
-    <div class="navfixed" :class="$route.path == '/' || $route.path == '/aboutus' || $route.path == '/contactus' || $route.path == '/login' || $route.path == '/register' || $route.path =='/merchantApply' ? '' : 'fixed'">
+    <div class="navfixed" ref="navfixed" :class="[$route.path == '/' || $route.path == '/aboutus' || $route.path == '/contactus' || $route.path == '/login' || $route.path == '/register' || $route.path =='/merchantApply' ? '' : 'fixed', sTop ?'fixing':'']">
       <div class="container top-bar clearfix">
         <router-link tag="i" to="/" :class="$route.path == '/' || $route.path == '/aboutus' || $route.path == '/contactus' || $route.path == '/login' || $route.path == '/register' || $route.path =='/merchantApply' ? '' : 'picture'"></router-link>
         <ul class="top-menu-left">
@@ -35,8 +35,9 @@
 export default {
   data() {
     return {
-      showul1:false,
-      showul2:false,
+      showul1: false,
+      showul2: false,
+      sTop:false,
       navs: [
         { name: "产品", path: "/product" },
         { name: "解决方案", path: "/agent" },
@@ -45,18 +46,33 @@ export default {
       ]
     };
   },
+  mounted() {
+    this.$nextTick(function () {
+      window.addEventListener('scroll', this.handleScroll)
+    })
+  },
   methods: {
-    selectStyle(index){
-      if(index == 0){
+    handleScroll() {
+      var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+      if(scrollTop > 45){
+        this.sTop = true;
+        // this.$refs.navfixed.style.position='fixed';
+      }else if(scrollTop < 15){
+        this.sTop =false;
+        // this.$refs.navfixed.style.position='absolute';
+      }
+    },
+    selectStyle(index) {
+      if (index == 0) {
         this.showul1 = true;
-      }else if(index ==1){
+      } else if (index == 1) {
         this.showul2 = true;
       }
     },
-    outStyle(index){
-      if(index == 0){
+    outStyle(index) {
+      if (index == 0) {
         this.showul1 = false;
-      }else if(index ==1){
+      } else if (index == 1) {
         this.showul2 = false;
       }
     },

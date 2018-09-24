@@ -2,7 +2,9 @@
   <div id="app">
     <headers></headers>
     <section>
-      <router-view/>
+      <keep-alive>
+        <router-view/>
+      </keep-alive>
     </section>
     <footers></footers>
   </div>

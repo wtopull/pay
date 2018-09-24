@@ -19,7 +19,11 @@
     left: 0;
     z-index: 99999;
     width: 100%;
-    opacity: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    & .top-bar .top-menu-left .menu-item,
+    .top-bar .top-menu-right .menu-item {
+      color: #fff;
+    }
   }
 }
 .sub-tab-menu{
@@ -40,6 +44,9 @@
     background-position: 10px;
     background-repeat: no-repeat;
     color: #666;
+  }
+  & .sub-menu-item:hover{
+    color:#35c8e6;
   }
 }
 .top-bar {
