@@ -7,19 +7,19 @@ import router from './router'
 Vue.config.productionTip = false;
 
 router.beforeEach((to, from, next) => {
-  //设置<title>
-  if (to.meta.title) {
-    document.title = to.meta.title;
-  }
-  next();
+    //设置<title>
+    if (to.meta.title) {
+        document.title = to.meta.title;
+    }
+    next();
 });
 /* eslint-disable no-new */
 new Vue({
-  el: '#app',
-  router,
-  render: h => h(App),
-  components: {
-    App
-  },
-  template: '<App/>'
+    el: '#app',
+    router,
+    render: h => h(App),
+    components: {
+        App
+    },
+    template: '<App/>'
 })

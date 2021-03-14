@@ -1,24 +1,24 @@
 <template>
-  <div id="app">
-    <headers></headers>
-    <section>
-      <keep-alive>
-        <router-view/>
-      </keep-alive>
-    </section>
-    <footers></footers>
-  </div>
+    <div id="app">
+        <headers></headers>
+        <section>
+            <keep-alive>
+                <router-view />
+            </keep-alive>
+        </section>
+        <footers></footers>
+    </div>
 </template>
 
 <script>
 import headers from "@/components/headers.vue";
 import footers from "@/components/footer.vue";
 export default {
-  name: "App",
-  components: {
-    headers,
-    footers
-  }
+    name: "App",
+    components: {
+        headers,
+        footers,
+    },
 };
 </script>
 
